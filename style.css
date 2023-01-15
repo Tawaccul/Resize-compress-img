@@ -16,11 +16,15 @@ body{
 
 .wrapper{ 
     width: 450px;
+    height: 288px;
     background: #fff;
     padding: 30px;
     border-radius: 9px;
+    transition: height;
 }
-
+.wrapper.active{
+    height: 537px;
+}
 .wrapper .upload-box{
     height: 225px;
     display:flex;
@@ -37,8 +41,29 @@ body{
     margin-top: 20px;
 }
 
+.wrapper.active .upload-box{
+    border:none;
+}
+.wrapper.active .upload-box p {
+    display: none;
+}
+.wrapper.active .upload-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 .wrapper .content{
     margin-top: 28px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper.active .content{
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s 0.5s ease;
 }
 
 .content .row{
